@@ -1,0 +1,58 @@
+WindowManager:
+    MainWindow:
+    SecondWindow:
+
+
+<MainWindow>:
+    name: "MainWindow"
+    tickers_list: ticker_box
+    start_date: start_box
+    end_date: end_box
+    results_box: results_box
+    BoxLayout:
+        orientation: "vertical"
+        size: root.width, root.height
+
+        Label:
+            text: "Enter Name of Stock"
+            font_size: 20
+        TextInput:
+            id: ticker_box
+        Label:
+            text: "Start"
+        TextInput:
+            id: start_box
+            hint_text: "YYYY-MM-DD"
+
+        Label:
+            text: "End"
+        TextInput:
+            id: end_box
+            hint_text: "YYYY-MM-DD"
+            text: ""
+        Button:
+            text: "Submit"
+            on_press: root.lookup()
+            on_press: root.manager.current = 'SecondWindow'
+        Label:
+            id: results_box
+            text:""
+
+
+
+<SecondWindow>:
+    name: "SecondWindow"
+    label: label_rows
+    GridLayout:
+        rows: 2
+
+        Button:
+            id:load
+            text: "load data"
+            on_press: root.myruntime()
+        RstDocument:
+            id:label_rows
+            text: ""
+
+
+
