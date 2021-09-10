@@ -28,10 +28,10 @@ class SecondWindow(Screen):
 
     def myruntime(self,):
 
-        label = self.ids.label_rows
+
         with open('result.csv', 'r') as csvfile:
             for line in csvfile.readlines():
-                self.ids.label_rows.text += line
+                self.ids.results_box.text += line
 
 
 class WindowManager(ScreenManager):

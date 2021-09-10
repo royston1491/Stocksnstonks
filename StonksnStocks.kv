@@ -8,7 +8,7 @@ WindowManager:
     tickers_list: ticker_box
     start_date: start_box
     end_date: end_box
-    results_box: results_box
+
     BoxLayout:
         orientation: "vertical"
         size: root.width, root.height
@@ -42,7 +42,7 @@ WindowManager:
 
 <SecondWindow>:
     name: "SecondWindow"
-    label: label_rows
+    results_box: results_box
     GridLayout:
         rows: 2
 
@@ -51,7 +51,7 @@ WindowManager:
             text: "load data"
             on_press: root.myruntime()
         RstDocument:
-            id:label_rows
+            id:results_box
             text: ""
 
 
