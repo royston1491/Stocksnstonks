@@ -10,28 +10,71 @@ WindowManager:
     end_date: end_box
 
     BoxLayout:
+        canvas:
+            Color:
+                rgb: 5,255,255
+            Rectangle:
+                size:self.size
         orientation: "vertical"
-        size: root.width, root.height
+        padding: 35
+        spacing: 15
+        AsyncImage:
+            source:"backround.png"
+            size_hint:1,2
+
+
 
         Label:
-            text: "Enter Name of Stock"
+            text: "Enter Stock Symbol"
+            color:(0,0,0,1)
             font_size: 20
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+
         TextInput:
             id: ticker_box
+            hint_text: "TSLA"
+            valign:1
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+
         Label:
             text: "Start"
+            color:(0,0,0,1)
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+
         TextInput:
             id: start_box
             hint_text: "YYYY-MM-DD"
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
 
         Label:
             text: "End"
+            color:(0,0,0,1)
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+
         TextInput:
             id: end_box
             hint_text: "YYYY-MM-DD"
             text: ""
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
+
         Button:
             text: "Submit"
+            color:(0,0,0,1)
+            size_hint_x:0.15
+            size_hint_y:0.5
+            pos_hint: {"center_x":0.5,"center_y":0.5}
             on_press: root.lookup()
             on_press: root.manager.current = 'SecondWindow'
         Label:
@@ -40,15 +83,25 @@ WindowManager:
 
 
 
+
 <SecondWindow>:
     name: "SecondWindow"
     results_box: results_box
-    GridLayout:
-        rows: 2
+    BoxLayout:
+        canvas:
+            Color:
+                rgb: 5,255,255
+            Rectangle:
+                size:self.size
+        orientation: "vertical"
+        padding: 35
+        spacing: 1
 
         Button:
             id:load
             text: "load data"
+            size_hint_x:0.15
+            size_hint_y:0.25
             on_press: root.myruntime()
         RstDocument:
             id:results_box
