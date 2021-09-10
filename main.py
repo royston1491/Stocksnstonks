@@ -30,7 +30,7 @@ class SecondWindow(Screen):
 
         label = self.ids.label_rows
         with open('result.csv', 'r') as csvfile:
-            for line in csvfile.readline().rstrip():
+            for line in csvfile.readlines():
                 self.ids.label_rows.text += line
 
 
