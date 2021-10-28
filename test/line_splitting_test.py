@@ -1,9 +1,6 @@
 import unittest
 
-
-class LineSplitter:
-    def split(self, string, delimiter):
-        return string.split(delimiter)
+from line_splitter import LineSplitter
 
 
 class LineSplittingTest(unittest.TestCase):
