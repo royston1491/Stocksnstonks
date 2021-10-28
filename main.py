@@ -3,6 +3,8 @@ from kivy.app import App
 import yfinance as yf
 import pandas as pd
 import csv
+
+from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty, NumericProperty, StringProperty
 from kivy.lang import Builder
@@ -28,9 +30,18 @@ class SecondWindow(Screen):
     # Function for taking data and displaying to the user
     # output currently needs formating
     def myruntime(self,):
+        self.results_box.add_widget(Label(text="Date"))
+        self.results_box.add_widget(Label(text="Open"))
+        self.results_box.add_widget(Label(text="High"))
+        self.results_box.add_widget(Label(text="Low"))
+        self.results_box.add_widget(Label(text="Close"))
+        self.results_box.add_widget(Label(text="Volume"))
+
         with open('result.csv', 'r') as csvfile:
             for line in csvfile.readlines():
-                self.ids.results_box.text += line
+                print(line)
+                print("next...")
+                self.results_box.add_widget(Label(text=line))
 
 
 # Manages trasition between screens listed at top of .kv
