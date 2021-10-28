@@ -2,8 +2,8 @@ import unittest
 
 
 class LineSplitter:
-    def split(self, param, param1):
-        pass
+    def split(self, string, delimiter):
+        return string.split(delimiter)
 
 
 class LineSplittingTest(unittest.TestCase):
