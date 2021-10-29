@@ -49,3 +49,6 @@ def historic_lookup():
                 break
 
         continue
+
+if __name__ == '__main__':
+    historic_lookup()

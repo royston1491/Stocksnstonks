@@ -3,10 +3,13 @@ from kivy.app import App
 import yfinance as yf
 import pandas as pd
 import csv
+
+from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.properties import ObjectProperty, NumericProperty, StringProperty
 from kivy.lang import Builder
 
+from line_splitter import LineSplitter
 
 kivy.require('1.0.6')  # replace with your current kivy version !
 
@@ -28,10 +31,11 @@ class SecondWindow(Screen):
     # Function for taking data and displaying to the user
     # output currently needs formating
     def myruntime(self,):
+        line_splitter = LineSplitter()
         with open('result.csv', 'r') as csvfile:
             for line in csvfile.readlines():
-                self.ids.results_box.text += line
-
+                for item in line_splitter.split(line, ","):
+                    self.results_box.add_widget(Label(text=item))
 
 # Manages trasition between screens listed at top of .kv
 class WindowManager(ScreenManager):
